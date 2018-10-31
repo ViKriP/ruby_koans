@@ -15,8 +15,12 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+
   array = [a, b, c]
+
   raise TriangleError unless array.all?{ |elem| elem.is_a?(Numeric) && elem > 0 }
+  raise TriangleError if a + b < c || a + c == b
+
   return :equilateral if array.uniq.size == 1
   return :isosceles if array.uniq.size == 2
   return :scalene if array.uniq.size == 3
